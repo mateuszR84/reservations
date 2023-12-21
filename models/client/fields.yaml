@@ -1,0 +1,17 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    first_name:
+        label: mater.reservations::lang.models.client.first_name
+        type: text
+        span: left
+    last_name: 
+        label: Surname
+        type: text
+        span: right
+    phone:
+        label: Phone
+        type: text
+        span: right

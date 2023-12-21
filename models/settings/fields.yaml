@@ -1,0 +1,64 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    icons:
+        mater.reservations::lang.settings.tab.opening_hours: icon-clock-o
+        mater.reservations::lang.settings.tab.service_types: icon-plus-square-o
+
+    fields:
+        monday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.monday'
+            type: text
+            size: tiny
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        tuesday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.tuesday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        wednesday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.wednesday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        thursday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.thursday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        friday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.friday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        saturday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.saturday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+        sunday:
+            label: 'mater.reservations::lang.settings.section_opening_hours.sunday'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            default: 'mater.reservations::lang.settings.section_opening_hours.sunday_default'
+        
+        service_type:
+            type: repeater
+            prompt: 'mater.reservations::lang.settings.service_type.prompt'
+            tab: 'mater.reservations::lang.settings.tab.service_types' 
+            form:
+                fields:
+                    name:
+                        label: 'mater.reservations::lang.settings.service_type.name'
+                        type: text
+                        span: full
+                    length:
+                        label: 'mater.reservations::lang.settings.service_type.length'
+                        type: text
+                        span: left
+                    price:
+                        label: 'mater.reservations::lang.settings.service_type.price'
+                        type: text
+                        span: right
+                    additional_informations:
+                        label: 'mater.reservations::lang.settings.service_type.additional_informations'
+                        type: richeditor
+                        span: full
+                    

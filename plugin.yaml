@@ -1,0 +1,25 @@
+plugin:
+    name: 'mater.reservations::lang.plugin.name'
+    description: 'mater.reservations::lang.plugin.description'
+    author: 'Mateusz Rycombel'
+    icon: icon-refresh
+    homepage: ''
+navigation:
+    reservations:
+        label: 'mater.reservations::lang.navigation.reservations.label'
+        url: mater/reservations/clients
+        icon: icon-refresh
+        order: 700
+        sideMenu:
+            client:
+                label: 'mater.reservations::lang.navigation.client.label' 
+                url: mater/reservations/clients
+                icon: icon-user
+            reservation:
+                label: 'mater.reservations::lang.navigation.reservation.label' 
+                url: mater/reservations/reservations
+                icon: icon-ticket
+            serviceTypes:
+                label: 'mater.reservations::lang.navigation.reservation.service_type' 
+                url: mater/reservations/servicetypes
+                icon: icon-wrench
