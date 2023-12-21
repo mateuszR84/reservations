@@ -18,6 +18,10 @@ return new class extends Migration
     {
         Schema::create('mater_reservations_service_types', function(Blueprint $table) {
             $table->id();
+            $table->text('service_name')->nullable();
+            $table->text('service_length')->nullable();
+            $table->text('service_price')->nullable();
+            $table->text('additional_informations')->nullable();
             $table->timestamps();
         });
     }

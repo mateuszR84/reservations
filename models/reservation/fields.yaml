@@ -1,0 +1,26 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    client:
+        label: mater.reservations::lang.models.reservation.client
+        type: relation
+        nameFrom: full_name
+        emptyOption: mater.reservations::lang.misc.empty_option
+        span: left
+    service:
+        label: mater.reservations::lang.models.reservation.service
+        type: relation
+        nameFrom: service_name
+        emptyOption: mater.reservations::lang.misc.empty_option
+        span: right
+    date:
+        label: mater.reservations::lang.models.reservation.date
+        type: datepicker
+        span: left
+    additional_informations:
+        label: mater.reservations::lang.models.reservation.additional_informations
+        type: richeditor
+        span: full
+        size: large

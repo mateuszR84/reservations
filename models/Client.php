@@ -20,4 +20,13 @@ class Client extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public $hasMany = [
+        'reservations' => Reservation::class,   
+    ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;  
+    }
 }

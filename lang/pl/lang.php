@@ -4,6 +4,9 @@
             'name' => 'Rezerwacje',
             'description' => 'Plugin do zarządzania rezerwacjami'
         ],
+        'misc' => [
+            'empty_option' => '- Wybierz -',
+        ],
         'navigation' => [
             'reservations' => [
                 'label' => 'Rezerwacje',
@@ -13,6 +16,7 @@
             ],
             'reservation' => [
                 'label' => 'Rezerwacje',
+                'service_types' => 'Rodzaje usług',
             ],
         ],
         'settings' => [
@@ -50,6 +54,14 @@
         'models' => [
             'client' => [
                 'first_name' => 'Imię',
+                'last_name' => 'Nazwisko',
+                'phone_no' => 'Nr telefonu',
+            ],
+            'reservation' => [
+                'client' => 'Klient',
+                'service' => 'Rodzaj usługi',
+                'date' => 'Termin',
+                'additional_informations' => 'Dodatkowe informacje',
             ]
         ]
     ];

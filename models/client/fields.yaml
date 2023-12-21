@@ -11,7 +11,7 @@ fields:
         label: Surname
         type: text
         span: right
-    phone:
+    phone_no:
         label: Phone
         type: text
         span: right
