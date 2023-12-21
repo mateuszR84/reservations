@@ -3,15 +3,15 @@
 # ===================================
 
 fields:
-    name:
+    service_name:
         label: 'mater.reservations::lang.settings.service_type.name'
         type: text
         span: full
-    length:
+    service_length:
         label: 'mater.reservations::lang.settings.service_type.length'
         type: text
         span: left
-    price:
+    service_price:
         label: 'mater.reservations::lang.settings.service_type.price'
         type: text
         span: right

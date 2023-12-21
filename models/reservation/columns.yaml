@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    client_name:
+        label: mater.reservations::lang.models.reservation.client
+        relation: client
+        select: first_name
+    service_name:
+        label: mater.reservations::lang.models.reservation.service
+        relation: service
+        select: service_name
+    date:
+        label: mater.reservations::lang.models.reservation.date
+    additional_informations:
+        label: mater.reservations::lang.models.reservation.additional_informations

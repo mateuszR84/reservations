@@ -19,7 +19,7 @@ navigation:
                 label: 'mater.reservations::lang.navigation.reservation.label' 
                 url: mater/reservations/reservations
                 icon: icon-ticket
-            serviceTypes:
-                label: 'mater.reservations::lang.navigation.reservation.service_type' 
+            service_types:
+                label: 'mater.reservations::lang.navigation.reservation.service_types' 
                 url: mater/reservations/servicetypes
                 icon: icon-wrench

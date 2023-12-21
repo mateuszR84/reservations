@@ -20,4 +20,8 @@ class ServiceType extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public $hasMany = [
+        'reservations' => Reservation::class,   
+    ];
 }

@@ -3,6 +3,10 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
+    service_name:
+        label: 'mater.reservations::lang.settings.service_type.name'
+    service_length:
+        label: 'mater.reservations::lang.settings.service_type.length'
+    service_price:
+        label: 'mater.reservations::lang.settings.service_type.price'
+        type: partial

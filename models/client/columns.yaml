@@ -3,6 +3,9 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
+    first_name:
+        label: mater.reservations::lang.models.client.first_name
+    last_name: 
+        label: mater.reservations::lang.models.client.last_name
+    phone_no:
+        label: mater.reservations::lang.models.client.phone_no
