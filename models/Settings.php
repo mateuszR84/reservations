@@ -14,4 +14,8 @@ class Settings extends Model
     public $settingsCode = 'mater_reservations_settings';
 
     public $settingsFields = 'fields.yaml';
+
+    public $attachOne = [
+        'logo' => \System\Models\File::class,
+    ];
 }

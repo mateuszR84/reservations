@@ -18,7 +18,15 @@ fields:
     date:
         label: mater.reservations::lang.models.reservation.date
         type: datepicker
+        firstDay: 1
+        disableDays:
+            - 0
         span: left
+    notification_method:
+        label: mater.reservations::lang.misc.notification.label
+        type: balloon-selector
+        default: mater.reservations::lang.misc.notification.phone
+        span: right
     additional_informations:
         label: mater.reservations::lang.models.reservation.additional_informations
         type: richeditor

@@ -6,6 +6,13 @@
         ],
         'misc' => [
             'empty_option' => '- Wybierz -',
+            'notification' => [
+                'label' => 'Metoda powiadomień',
+                'phone' => 'Telefon',
+                'email' => 'Email',
+                'both' => 'Telefon + mail',
+                'no_email' => 'Wybrany użytkownik nie posiada zapisanego adresu email. Wybierz inną metodę powiadomień',
+            ],
         ],
         'navigation' => [
             'reservations' => [
@@ -25,7 +32,8 @@
             'category' => 'Rezerwacje',
             'tab' => [
                 'opening_hours' => 'Godziny otwarcia',
-                'service_types' => 'Rodzaje usług',
+                'about' => 'Dane firmy',
+                'employees' => 'Pracownicy',
             ],
             'section_opening_hours' => [
                 'label' => 'Godziny otwarcia',
@@ -39,16 +47,25 @@
                 'sunday' => 'Niedziela',
                 'sunday_default' => 'Zamknięte',
             ],
-            'section_service_types' => [
-                'label' => 'Zarządzaj rodzajami usług'
+            'employees' => [
+                'prompt' => 'Dodaj nowego pracownika',
+                'first_name' => 'Imię',
+                'last_name' => 'Nazwisko',
+                'phone_no' => 'Nr telefonu',
+                'email' => 'Email',
+                'avatar' => 'Prześlij zdjęcie',
             ],
-            'service_type' => [
-                'label' => 'Rodzaje usług',
-                'prompt' => 'Dodaj rodzaj usługi',  
-                'name' => 'Nazwa usługi',
-                'length' => 'Długość trwania usługi',
-                'price' => 'Cena usługi',
-                'additional_informations' => 'Dodatkowe informacje',
+            'about' => [
+                'company_name' => 'Nazwa firmy',
+                'section_address' => 'Dane adresowe',
+                'section_logo' => 'Logo',
+                'street' => 'Ulica',  
+                'building_no' => 'Nr budynku',
+                'city' => 'Miejscowość',
+                'postcode' => 'Kod pocztowy',
+                'region' => 'Województwo',
+                'logo' => 'Prześlij obraz',
+                'logo_comment' => 'Obraz nie powinien przekraczać wymiarów 200 x 200 px',
             ],
         ],
         'models' => [
@@ -56,6 +73,7 @@
                 'first_name' => 'Imię',
                 'last_name' => 'Nazwisko',
                 'phone_no' => 'Nr telefonu',
+                'email' => 'Email',
             ],
             'reservation' => [
                 'client' => 'Klient',

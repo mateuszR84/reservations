@@ -5,3 +5,6 @@
 1.1.0:
     - Add reservation model and controller
     - 1_1_0_create_reservations_table.php
+1.1.1:
+    - Add notification_method to reservation model
+    - 1_1_1_add_notification_method_reservations_table.php

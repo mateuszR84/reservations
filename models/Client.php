@@ -19,7 +19,12 @@ class Client extends Model
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'phone_no' => 'required',
+        'email' => 'email'
+    ];
 
     public $hasMany = [
         'reservations' => Reservation::class,   
