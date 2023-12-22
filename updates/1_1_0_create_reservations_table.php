@@ -18,10 +18,10 @@ return new class extends Migration
     {
         Schema::create('mater_reservations_reservations', function(Blueprint $table) {
             $table->id();
-            $table->integer('client_id')->unsigned();
+            $table->bigInteger('client_id')->unsigned();
             $table->foreign('client_id', 'mater_reservations_reservation_client_id')
                     ->references('id')->on('mater_reservations_clients');
-            $table->integer('service_id')->unsigned();
+            $table->bigInteger('service_id')->unsigned();
             $table->foreign('service_id', 'mater_reservations_reservation_service_id')
                     ->references('id')->on('mater_reservations_clients');
             $table->dateTime('date');
