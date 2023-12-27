@@ -9,3 +9,5 @@ columns:
         label: mater.reservations::lang.models.client.last_name
     phone_no:
         label: mater.reservations::lang.models.client.phone_no
+    email:
+        label: mater.reservations::lang.models.client.email

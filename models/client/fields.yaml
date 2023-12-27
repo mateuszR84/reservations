@@ -8,10 +8,14 @@ fields:
         type: text
         span: left
     last_name: 
-        label: Surname
+        label: mater.reservations::lang.models.client.last_name
         type: text
         span: right
     phone_no:
-        label: Phone
+        label: mater.reservations::lang.models.client.phone_no
+        type: text
+        span: left
+    email:
+        label: mater.reservations::lang.models.client.email
         type: text
         span: right

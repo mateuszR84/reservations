@@ -3,6 +3,19 @@
 # ===================================
 
 fields:
+    date:
+        label: mater.reservations::lang.models.reservation.date
+        type: datepicker
+        mode: date
+        firstDay: 1
+        disableDays:
+            - 0
+        span: left
+    hour:
+        label: mater.reservations::lang.models.reservation.hour
+        type: balloon-selector
+        span: full
+        dependsOn: date
     client:
         label: mater.reservations::lang.models.reservation.client
         type: relation
@@ -15,9 +28,16 @@ fields:
         nameFrom: service_name
         emptyOption: mater.reservations::lang.misc.empty_option
         span: right
-    date:
-        label: mater.reservations::lang.models.reservation.date
-        type: datepicker
+    employee:
+        label: mater.reservations::lang.models.reservation.employee
+        type: relation
+        nameFrom: full_name
+        emptyOption: mater.reservations::lang.misc.empty_option
+        span: right
+    notification_method:
+        label: mater.reservations::lang.misc.notification.label
+        type: balloon-selector
+        default: mater.reservations::lang.misc.notification.phone
         span: left
     additional_informations:
         label: mater.reservations::lang.models.reservation.additional_informations

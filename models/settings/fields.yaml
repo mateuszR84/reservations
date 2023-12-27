@@ -5,9 +5,87 @@
 tabs:
     icons:
         mater.reservations::lang.settings.tab.opening_hours: icon-clock-o
-        mater.reservations::lang.settings.tab.service_types: icon-plus-square-o
+        mater.reservations::lang.settings.tab.about: icon-map-marker
+        mater.reservations::lang.settings.tab.employees: icon-user
 
     fields:
+        
+        ### About company tab
+
+        company_name:
+            label: 'mater.reservations::lang.settings.about.company_name'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: left
+
+        _section_address:
+            label: 'mater.reservations::lang.settings.about.section_address'
+            tab: 'mater.reservations::lang.settings.tab.about'
+            type: section
+        street:
+            label: 'mater.reservations::lang.settings.about.street'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: left
+        building_no:
+            label: 'mater.reservations::lang.settings.about.building_no'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: right
+        city: 
+            label: 'mater.reservations::lang.settings.about.city'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: left
+        postcode: 
+            label: 'mater.reservations::lang.settings.about.postcode'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: right
+        region: 
+            label: 'mater.reservations::lang.settings.about.region'
+            type: text
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: left
+        
+        _section_logo:
+            label: 'mater.reservations::lang.settings.about.section_logo'
+            tab: 'mater.reservations::lang.settings.tab.about'
+            type: section
+        logo:
+            label: 'mater.reservations::lang.settings.about.logo'
+            comment: 'mater.reservations::lang.settings.about.logo_comment'
+            type: fileupload
+            tab: 'mater.reservations::lang.settings.tab.about'
+            span: left
+
+        ### Employee tab
+
+        employees:
+            type: repeater
+            prompt: 'mater.reservations::lang.settings.employees.prompt'
+            tab: 'mater.reservations::lang.settings.tab.employees'
+            form:
+                fields:
+                    first_name:
+                        label: mater.reservations::lang.settings.employees.first_name
+                        type: text
+                        span: left
+                    last_name: 
+                        label: mater.reservations::lang.settings.employees.last_name
+                        type: text
+                        span: right
+                    phone_no:
+                        label: mater.reservations::lang.settings.employees.phone_no
+                        type: text
+                        span: left
+                    email:
+                        label: mater.reservations::lang.settings.employees.email
+                        type: text
+                        span: right
+
+        ### Opening hours tab
+        
         monday:
             label: 'mater.reservations::lang.settings.section_opening_hours.monday'
             type: text
@@ -38,27 +116,3 @@ tabs:
             type: text
             tab: 'mater.reservations::lang.settings.tab.opening_hours' 
             default: 'mater.reservations::lang.settings.section_opening_hours.sunday_default'
-        
-        service_type:
-            type: repeater
-            prompt: 'mater.reservations::lang.settings.service_type.prompt'
-            tab: 'mater.reservations::lang.settings.tab.service_types' 
-            form:
-                fields:
-                    name:
-                        label: 'mater.reservations::lang.settings.service_type.name'
-                        type: text
-                        span: full
-                    length:
-                        label: 'mater.reservations::lang.settings.service_type.length'
-                        type: text
-                        span: left
-                    price:
-                        label: 'mater.reservations::lang.settings.service_type.price'
-                        type: text
-                        span: right
-                    additional_informations:
-                        label: 'mater.reservations::lang.settings.service_type.additional_informations'
-                        type: richeditor
-                        span: full
-                    

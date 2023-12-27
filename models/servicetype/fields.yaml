@@ -4,18 +4,20 @@
 
 fields:
     service_name:
-        label: 'mater.reservations::lang.settings.service_type.name'
+        label: 'mater.reservations::lang.models.service_type.name'
         type: text
         span: full
     service_length:
-        label: 'mater.reservations::lang.settings.service_type.length'
+        label: 'mater.reservations::lang.models.service_type.length'
         type: text
         span: left
+        comment: 'mater.reservations::lang.models.service_type.length_comment'
     service_price:
-        label: 'mater.reservations::lang.settings.service_type.price'
+        label: 'mater.reservations::lang.models.service_type.price'
         type: text
         span: right
+        comment: 'mater.reservations::lang.models.service_type.price_comment'
     additional_informations:
-        label: 'mater.reservations::lang.settings.service_type.additional_informations'
+        label: 'mater.reservations::lang.models.service_type.additional_informations'
         type: richeditor
         span: full

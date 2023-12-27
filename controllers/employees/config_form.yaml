@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Employee
+
+# Model Form Field configuration
+form: $/mater/reservations/models/employee/fields.yaml
+
+# Model Class name
+modelClass: Mater\Reservations\Models\Employee
+
+# Default redirect location
+defaultRedirect: mater/reservations/employees
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: mater/reservations/employees/update/:id
+    redirectClose: mater/reservations/employees
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: mater/reservations/employees
+    redirectClose: mater/reservations/employees
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

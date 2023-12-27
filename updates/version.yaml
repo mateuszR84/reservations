@@ -5,3 +5,16 @@
 1.1.0:
     - Add reservation model and controller
     - 1_1_0_create_reservations_table.php
+1.1.1:
+    - Add notification_method to reservation model
+    - 1_1_1_add_notification_method_reservations_table.php
+1.1.2:
+    - Create employee model and controller, add employee to reservation
+    - 1_1_2_create_employees_table.php
+    - 1_1_2_add_employee_id_reservations_table.php
+1.1.3:
+    - Add hour field to reservations table
+    - 1_1_3_hour_field_reservations_table.php
+1.1.4:
+    - Add calendars table
+    - 1_1_4_create_calendars_table.php
