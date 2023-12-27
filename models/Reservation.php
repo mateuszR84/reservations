@@ -3,6 +3,7 @@
 use Lang;
 use Mail;
 use Model;
+use Carbon\Carbon;
 use ApplicationException;
 use Mater\Reservations\Models\Client;
 use Mater\Reservations\Models\Employee;
@@ -72,5 +73,25 @@ class Reservation extends Model
         Mail::send('mater.reservations::mail.reservation_confirmation', $data, function($message) {
             $message->to($this->client->email, $this->client->first_name);
         });
+    }
+
+    public function getAvailableSlotsOptions(): array
+    {
+        $slots = [];
+
+        $startTime = Carbon::createFromFormat('H:i', '9:00');
+        $endTime = Carbon::createFromFormat('H:i', '17:00');
+        $interval = 25;
+
+        while($startTime <= $endTime) {
+            $closingTimeCountdown = $startTime->diffInMinutes($endTime);
+            if ($closingTimeCountdown <= $interval) {
+                break;
+            }
+            $slots[] = $startTime->format('H:i');
+            $startTime = $startTime->addMinutes($interval);
+        }
+
+        return $slots;
     }
 }
