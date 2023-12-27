@@ -18,8 +18,8 @@ return new class extends Migration
     {
         Schema::create('mater_reservations_calendars', function(Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
-            $table->text('reservations_hours');
+            $table->date('date');
+            $table->text('reservations_hours')->nullable();
             $table->timestamps();
         });
     }

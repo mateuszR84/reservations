@@ -22,33 +22,48 @@ class Calendar extends Model
      */
     public $rules = [];
 
-    public function addReservationToCalendar($hour, $length) 
+    public $fillable = [
+        'date',
+        'reservations_hours',
+    ];
+
+    public $jsonable = [
+        'reservations_hours',
+    ];
+
+    public static function get(string $day)
     {
-        if (empty($this->date)) {
-            $this->saveReservation($this->date, $hour, $length);
-        }
-
-        $weekDay = Carbon::parse($this->date)->format('l');
-
-        $openingHours = Settings::getOpeningHoursForDay($weekDay);
-
-
+        $model = Self::getModel($day);
+        
+        return $model->reservations_hours;
     }
 
-    public function saveReservation($date, $hours, $length)
+    public static function getModel($day)
     {
-        $this->date = $date;
-        
-        $this->reservation_hours = $this->updateAvailableHours($hours, $length);
+        $model = Self::where('date', $day)->firstOrCreate([
+            'date' => $day,
+        ]);
+
+        return $model;
+    } 
+    
+    public function set(string $day, $startHour = null, $duration = null)
+    {
+        $reservationForDay = Self::getModel($day);
+        $reservationForDay->reservations_hours = $this->updateAvailableHours($day, $startHour, $duration);
+        $reservationForDay->save();   
     }
 
-    public function updateAvailableHours(string $hours = null, string $length = null): array
+    public function updateAvailableHours($day, $startHour, $duration): array
     {
-        $availableHours = $this->reservation_hours;
-        if (empty($availableHours)) {
-            
-        } 
-        
+        $hours = Self::get($day) ? Self::get($day) : $this->getAvailableHours($day);
+
+        // TODO remove all records that are covered by reservation duration
+        // if (($duration - 25) >= 25 ) {
+        //     unset($hours[$startHour], $hours[$startHour + ]);
+        // }
+
+        return $hours;
     }
 
     public static function getAvailableHours($day): array
