@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    first_name:
+        label: mater.reservations::lang.models.employee.first_name
+        type: text
+        span: left
+    last_name:
+        label: mater.reservations::lang.models.employee.last_name
+        type: text
+        span: right
+    phone_no:
+        label: mater.reservations::lang.models.employee.phone_no
+        type: text
+        span: left
+    email:
+        label: mater.reservations::lang.models.employee.email
+        type: text
+        span: right
+    avatar:
+        label: mater.reservations::lang.models.employee.avatar
+        type: fileupload
+        span: left

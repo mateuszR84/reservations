@@ -1,0 +1,13 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    first_name:
+        label: mater.reservations::lang.models.employee.first_name
+    last_name:
+        label: mater.reservations::lang.models.employee.last_name
+    phone_no:
+        label: mater.reservations::lang.models.employee.phone_no
+    email:
+        label: mater.reservations::lang.models.employee.email

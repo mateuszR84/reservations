@@ -11,15 +11,19 @@ navigation:
         icon: icon-refresh
         order: 700
         sideMenu:
-            client:
-                label: 'mater.reservations::lang.navigation.client.label' 
+            clients:
+                label: 'mater.reservations::lang.navigation.client.label'
                 url: mater/reservations/clients
-                icon: icon-user
-            reservation:
-                label: 'mater.reservations::lang.navigation.reservation.label' 
+                icon: icon-users
+            reservations:
+                label: 'mater.reservations::lang.navigation.reservation.label'
                 url: mater/reservations/reservations
                 icon: icon-ticket
             service_types:
-                label: 'mater.reservations::lang.navigation.reservation.service_types' 
+                label: 'mater.reservations::lang.navigation.reservation.service_types'
                 url: mater/reservations/servicetypes
                 icon: icon-wrench
+            employees:
+                label: 'mater.reservations::lang.navigation.employees'
+                url: mater/reservations/employees
+                icon: icon-user

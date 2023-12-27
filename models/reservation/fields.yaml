@@ -22,11 +22,17 @@ fields:
         disableDays:
             - 0
         span: left
+    employee:
+        label: mater.reservations::lang.models.reservation.employee
+        type: relation
+        nameFrom: full_name
+        emptyOption: mater.reservations::lang.misc.empty_option
+        span: right
     notification_method:
         label: mater.reservations::lang.misc.notification.label
         type: balloon-selector
         default: mater.reservations::lang.misc.notification.phone
-        span: right
+        span: left
     additional_informations:
         label: mater.reservations::lang.models.reservation.additional_informations
         type: richeditor

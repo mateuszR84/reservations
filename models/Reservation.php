@@ -1,10 +1,11 @@
 <?php namespace Mater\Reservations\Models;
 
-use Mail;
 use Lang;
+use Mail;
 use Model;
 use ApplicationException;
 use Mater\Reservations\Models\Client;
+use Mater\Reservations\Models\Employee;
 
 /**
  * Reservation Model
@@ -28,6 +29,7 @@ class Reservation extends Model
     public $belongsTo = [
         'client' => Client::class,
         'service' => ServiceType::class,
+        'employee' => Employee::class,
     ];
 
     public function getClientNameAttribute()
@@ -41,14 +43,14 @@ class Reservation extends Model
             'phone' => 'mater.reservations::lang.misc.notification.phone',
             'email' => 'mater.reservations::lang.misc.notification.email',
             'both' => 'mater.reservations::lang.misc.notification.both',
-        ];    
+        ];
     }
 
     public function beforeSave()
     {
         if (($this->notification_method !== 'phone') && empty($this->client->email)) {
             throw new ApplicationException(Lang::get('mater.reservations::lang.misc.notification.no_email'));
-        }    
+        }
     }
 
     public function afterSave()

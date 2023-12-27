@@ -4,9 +4,9 @@
 
 columns:
     service_name:
-        label: 'mater.reservations::lang.settings.service_type.name'
+        label: 'mater.reservations::lang.models.service_type.name'
     service_length:
-        label: 'mater.reservations::lang.settings.service_type.length'
+        label: 'mater.reservations::lang.models.service_type.length'
     service_price:
-        label: 'mater.reservations::lang.settings.service_type.price'
+        label: 'mater.reservations::lang.models.service_type.price'
         type: partial
