@@ -18,4 +18,9 @@ class Settings extends Model
     public $attachOne = [
         'logo' => \System\Models\File::class,
     ];
+
+    public static function getOpeningHoursForDay($day)
+    {
+        return self::instance()->$day;    
+    }
 }

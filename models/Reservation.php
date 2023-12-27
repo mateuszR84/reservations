@@ -47,6 +47,10 @@ class Reservation extends Model
         ];
     }
 
+    public function beforeCreate()
+    {
+        (new Calendar)->addReservationToCalendar($this->hour, $this->$length);
+    }
     public function beforeSave()
     {
         if (($this->notification_method !== 'phone') && empty($this->client->email)) {
@@ -75,23 +79,12 @@ class Reservation extends Model
         });
     }
 
-    public function getHourOptions(): array
+    public function getHourOptions()
     {
-        $slots = [];
-
-        $startTime = Carbon::createFromFormat('H:i', '9:00');
-        $endTime = Carbon::createFromFormat('H:i', '17:00');
-        $interval = 25;
-
-        while($startTime <= $endTime) {
-            $closingTimeCountdown = $startTime->diffInMinutes($endTime);
-            if ($closingTimeCountdown <= $interval) {
-                break;
-            }
-            $slots[] = $startTime->format('H:i');
-            $startTime = $startTime->addMinutes($interval);
+        if ($this->date) {
+            return Calendar::getAvailableHours($this->date);
+        } else {
+            return [0 => 'Wybierz datę'];
         }
-
-        return $slots;
     }
 }

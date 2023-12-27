@@ -83,10 +83,6 @@ tabs:
                         label: mater.reservations::lang.settings.employees.email
                         type: text
                         span: right
-                    avatar:
-                        label: mater.reservations::lang.settings.employees.avatar
-                        type: fileupload
-                        span: left
 
         ### Opening hours tab
         

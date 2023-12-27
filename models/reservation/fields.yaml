@@ -15,6 +15,7 @@ fields:
         label: mater.reservations::lang.models.reservation.hour
         type: balloon-selector
         span: full
+        dependsOn: date
     client:
         label: mater.reservations::lang.models.reservation.client
         type: relation
