@@ -75,7 +75,7 @@ class Reservation extends Model
         });
     }
 
-    public function getAvailableSlotsOptions(): array
+    public function getHourOptions(): array
     {
         $slots = [];
 

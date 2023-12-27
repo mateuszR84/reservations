@@ -6,12 +6,13 @@ fields:
     date:
         label: mater.reservations::lang.models.reservation.date
         type: datepicker
+        mode: date
         firstDay: 1
         disableDays:
             - 0
         span: left
-    _available_slots:
-        label: mater.reservations::lang.models.reservation.slots
+    hour:
+        label: mater.reservations::lang.models.reservation.hour
         type: balloon-selector
         span: full
     client:

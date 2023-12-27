@@ -73,6 +73,7 @@ return [
             'service' => 'Rodzaj usługi',
             'employee' => 'Pracownik',
             'date' => 'Termin',
+            'hour' => 'Dostępne godziny',
             'additional_informations' => 'Dodatkowe informacje',
         ],
         'employee' => [
