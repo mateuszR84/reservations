@@ -38,7 +38,7 @@ return [
         ],
         'section_opening_hours' => [
             'label' => 'Godziny otwarcia',
-            'comment' => 'Wprowadź godziny otwarcia zakładu',
+            'comment' => 'Wprowadź godziny otwarcia zakładu w formacie np. "9:00-17:00"',
             'monday' => 'Poniedziałek',
             'tuesday' => 'Wtorek',
             'wednesday' => 'Środa',
@@ -75,6 +75,8 @@ return [
             'date' => 'Termin',
             'hour' => 'Dostępne godziny',
             'additional_informations' => 'Dodatkowe informacje',
+            'revoke' => 'Actions',
+            'start' => 'Godzina',
         ],
         'employee' => [
             'first_name' => 'Imię',

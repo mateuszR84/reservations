@@ -1,4 +1,6 @@
-<?php namespace Mater\Reservations\Models;
+<?php
+
+namespace Mater\Reservations\Models;
 
 use Model;
 use Carbon\Carbon;
@@ -34,7 +36,7 @@ class Calendar extends Model
     public static function get(string $day)
     {
         $model = Self::getModel($day);
-        
+
         return $model->reservations_hours;
     }
 
@@ -45,39 +47,52 @@ class Calendar extends Model
         ]);
 
         return $model;
-    } 
-    
+    }
+
     public function set(string $day, $startHour = null, $duration = null)
     {
         $reservationForDay = Self::getModel($day);
         $reservationForDay->reservations_hours = $this->updateAvailableHours($day, $startHour, $duration);
-        $reservationForDay->save();   
+        $reservationForDay->save();
     }
 
     public function updateAvailableHours($day, $startHour, $duration): array
     {
-        $hours = Self::get($day) ? Self::get($day) : $this->getAvailableHours($day);
+        $timeSlots = Self::get($day) ? Self::get($day) : $this->getAvailableHours($day);
 
-        // TODO remove all records that are covered by reservation duration
-        // if (($duration - 25) >= 25 ) {
-        //     unset($hours[$startHour], $hours[$startHour + ]);
-        // }
+        $availableSlots = [];
 
-        return $hours;
+        foreach ($timeSlots as $timeSlot) {
+            $reservationEnd = Carbon::parse($startHour)->addMinutes($duration - 1);
+
+            $isTimeSlotReserved = false;
+            for ($current = Carbon::parse($startHour); $current <= $reservationEnd; $current = $current->addMinutes(25)) {
+                if ($timeSlot == $current->format('H:i')) {
+                    $isTimeSlotReserved = true;
+                    break;
+                }
+            }
+
+            if (!$isTimeSlotReserved) {
+                $availableSlots[$timeSlot] = $timeSlot;
+            }
+        }
+
+        return $availableSlots;
     }
 
-    public static function getAvailableHours($day): array
+    public static function getAvailableHours(?string $day = 'monday'): array
     {
         $slots = [];
         $weekDay = strtolower(Carbon::parse($day)->format('l'));
 
-        $openingHours = Settings::getOpeningHoursForDay($weekDay);
+        $openingHours = Settings::getOpeningHoursForDay($weekDay) ? Settings::getOpeningHoursForDay($weekDay) : '9:00-17:00';
         $parts = explode('-', $openingHours);
         $startTime = Carbon::createFromFormat('H:i', $parts[0]);
         $endTime = Carbon::createFromFormat('H:i', $parts[1]);
         $interval = 25;
 
-        while($startTime <= $endTime) {
+        while ($startTime <= $endTime) {
             $closingTimeCountdown = $startTime->diffInMinutes($endTime);
             if ($closingTimeCountdown <= $interval) {
                 break;

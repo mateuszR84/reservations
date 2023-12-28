@@ -39,4 +39,9 @@ class Reservations extends Controller
 
         BackendMenu::setContext('Mater.Reservations', 'reservations', 'reservations');
     }
+
+    public function revokeReservation()
+    {
+        return true;
+    }
 }
