@@ -21,6 +21,14 @@ class Employee extends Model
      */
     public $table = 'mater_reservations_employees';
 
+    public $fillable = [
+        'first_name',
+        'last_name',
+        'slug',
+        'phone_no',
+        'email',
+    ];
+
     /**
      * @var array rules for validation
      */

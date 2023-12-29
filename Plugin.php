@@ -17,7 +17,7 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-        //
+        $this->registerConsoleCommand('seed.database', \Mater\Reservations\Console\Seed::class);
     }
 
     /**

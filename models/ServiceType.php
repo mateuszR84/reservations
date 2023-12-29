@@ -11,6 +11,12 @@ class ServiceType extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    public $fillable = [
+        'service_name',
+        'service_length',
+        'service_price',
+    ];
+
     /**
      * @var string table name
      */
@@ -22,6 +28,6 @@ class ServiceType extends Model
     public $rules = [];
 
     public $hasMany = [
-        'reservations' => Reservation::class,   
+        'reservations' => Reservation::class,
     ];
 }
