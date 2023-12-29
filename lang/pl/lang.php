@@ -77,6 +77,7 @@ return [
             'last_name' => 'Nazwisko',
             'phone_no' => 'Nr telefonu',
             'email' => 'Email',
+            'reservations' => 'Rezerwacje użytkownika',
         ],
         'reservation' => [
             'client' => 'Klient',
@@ -103,5 +104,10 @@ return [
             'price_comment' => 'Cena w PLN, wprowadź tylko wartość',
             'additional_informations' => 'Dodatkowe informacje',
         ],
+    ],
+    'controllers' => [
+        'clients' => [
+            'reservations' => 'Rezerwacje',
+        ]
     ]
 ];
