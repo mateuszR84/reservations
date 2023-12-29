@@ -23,7 +23,7 @@ return new class extends Migration
                     ->references('id')->on('mater_reservations_clients');
             $table->bigInteger('service_id')->unsigned();
             $table->foreign('service_id', 'mater_reservations_reservation_service_id')
-                    ->references('id')->on('mater_reservations_clients');
+                    ->references('id')->on('mater_reservations_service_types');
             $table->date('date');
             $table->text('additional_informations');
             $table->timestamps();
