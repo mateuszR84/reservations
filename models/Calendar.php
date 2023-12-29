@@ -13,6 +13,7 @@ use Carbon\Carbon;
 class Calendar extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\SoftDelete;
 
     /**
      * @var string table name
@@ -23,6 +24,10 @@ class Calendar extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public $dates = [
+        'deleted_at'
+    ];
 
     public $fillable = [
         'date',
@@ -102,5 +107,19 @@ class Calendar extends Model
         }
 
         return $slots;
+    }
+
+    public static function deleteOldRecords(): void
+    {
+        $calendars = Self::all();
+        foreach ($calendars as $calendar) {
+            if (Carbon::parse($calendar->date)->lte(Carbon::now()->subDays(30))) {
+                $calendar->delete();
+            }
+
+            if (Carbon::parse($calendar->date)->lte(Carbon::now()->subDays(60))) {
+                $calendar->forceDelete();
+            }
+        }
     }
 }

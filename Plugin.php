@@ -1,7 +1,9 @@
 <?php namespace Mater\Reservations;
 
 use Backend;
+use Carbon\Carbon;
 use System\Classes\PluginBase;
+use Mater\Reservations\Models\Calendar;
 
 /**
  * Plugin Information File
@@ -65,5 +67,12 @@ class Plugin extends PluginBase
                 'order' => 100,
             ]
         ];
+    }
+
+    public function registerSchedule($schedule)
+    {
+        $schedule->call(function () {
+            Calendar::deleteOldRecords();
+        })->dailyAt('08:00');
     }
 }
