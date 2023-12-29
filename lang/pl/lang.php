@@ -13,6 +13,12 @@ return [
             'both' => 'Telefon + mail',
             'no_email' => 'Wybrany użytkownik nie posiada zapisanego adresu email. Wybierz inną metodę powiadomień',
         ],
+        'currency' => [
+            'pln' => 'PLN (polski złoty)',
+            'eur' => 'EUR (euro)',
+            'usd' => 'USD (dolar amer.)',
+            'gbp' => 'GBP (funt szterling)'
+        ],
     ],
     'navigation' => [
         'reservations' => [
@@ -34,7 +40,7 @@ return [
         'tab' => [
             'opening_hours' => 'Godziny otwarcia',
             'about' => 'Dane firmy',
-            'employees' => 'Pracownicy',
+            'general' => 'Ogólne',
         ],
         'section_opening_hours' => [
             'label' => 'Godziny otwarcia',
@@ -59,6 +65,10 @@ return [
             'region' => 'Województwo',
             'logo' => 'Prześlij obraz',
             'logo_comment' => 'Obraz nie powinien przekraczać wymiarów 200 x 200 px',
+        ],
+        'general' => [
+            'currency_label' => 'Waluta',
+            'currency_label_comment' => 'Wybierz, w jakiej walucie będą przedstawiane ceny',
         ],
     ],
     'models' => [

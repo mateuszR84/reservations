@@ -16,6 +16,3 @@ columns:
         type: date
     hour:
         label: mater.reservations::lang.models.reservation.start
-    revoke_reservation:
-        label: mater.reservations::lang.models.reservation.revoke
-        type: partial

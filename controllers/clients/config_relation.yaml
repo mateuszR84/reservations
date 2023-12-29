@@ -1,0 +1,7 @@
+reservations:
+    label: 'mater.reservations::lang.controllers.clients.reservations'
+    view:
+        list: $/mater/reservations/models/reservation/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/mater/reservations/models/reservation/fields.yaml

@@ -21,6 +21,21 @@ class Settings extends Model
 
     public static function getOpeningHoursForDay($day)
     {
-        return self::instance()->$day;    
+        return self::instance()->$day;
+    }
+
+    public function getCurrencyOptions()
+    {
+        return [
+            'PLN' => 'mater.reservations::lang.misc.currency.pln',
+            'EUR' => 'mater.reservations::lang.misc.currency.eur',
+            'USD' => 'mater.reservations::lang.misc.currency.usd',
+            'GBP' => 'mater.reservations::lang.misc.currency.gbp',
+        ];
+    }
+
+    public static function getCurrency()
+    {
+        return self::instance()->currency;
     }
 }

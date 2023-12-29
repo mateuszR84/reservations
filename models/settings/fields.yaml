@@ -6,7 +6,7 @@ tabs:
     icons:
         mater.reservations::lang.settings.tab.opening_hours: icon-clock-o
         mater.reservations::lang.settings.tab.about: icon-map-marker
-        mater.reservations::lang.settings.tab.employees: icon-user
+        mater.reservations::lang.settings.tab.general: icon-cog
 
     fields:
 
@@ -59,30 +59,15 @@ tabs:
             tab: 'mater.reservations::lang.settings.tab.about'
             span: left
 
-        ### Employee tab
+        ### General tab
 
-        employees:
-            type: repeater
-            prompt: 'mater.reservations::lang.settings.employees.prompt'
-            tab: 'mater.reservations::lang.settings.tab.employees'
-            form:
-                fields:
-                    first_name:
-                        label: mater.reservations::lang.settings.employees.first_name
-                        type: text
-                        span: left
-                    last_name:
-                        label: mater.reservations::lang.settings.employees.last_name
-                        type: text
-                        span: right
-                    phone_no:
-                        label: mater.reservations::lang.settings.employees.phone_no
-                        type: text
-                        span: left
-                    email:
-                        label: mater.reservations::lang.settings.employees.email
-                        type: text
-                        span: right
+        currency:
+            label: 'mater.reservations::lang.settings.general.currency_label'
+            comment: 'mater.reservations::lang.settings.general.currency_label_comment'
+            type: dropdown
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+
 
         ### Opening hours tab
         _section:

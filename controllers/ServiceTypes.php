@@ -1,7 +1,10 @@
-<?php namespace Mater\Reservations\Controllers;
+<?php
+
+namespace Mater\Reservations\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Mater\Reservations\Models\Settings;
 
 /**
  * Service Types Backend Controller
