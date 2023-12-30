@@ -1,7 +1,10 @@
 <?php namespace Mater\Reservations;
 
 use Backend;
+use Carbon\Carbon;
 use System\Classes\PluginBase;
+use Mater\Reservations\Models\Calendar;
+use Mater\Reservations\Models\Settings;
 
 /**
  * Plugin Information File
@@ -15,7 +18,7 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-        //
+        $this->registerConsoleCommand('seed.database', \Mater\Reservations\Console\Seed::class);
     }
 
     /**
@@ -66,4 +69,20 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function registerSchedule($schedule)
+    {
+        $schedule->call(function () {
+            Calendar::deleteOldRecords();
+        })->dailyAt('09:00');
+
+        $dailyReminder = Settings::getDailyReminder();
+        if($dailyReminder['is_enabled'] == 1){
+            $schedule->call(function () {
+            //TODO send email
+            })->dailyAt($dailyReminder['sent_at']);
+        }
+    }
+
+
 }

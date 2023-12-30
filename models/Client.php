@@ -16,6 +16,12 @@ class Client extends Model
      */
     public $table = 'mater_reservations_clients';
 
+    public $fillable = [
+        'first_name',
+        'last_name',
+        'phone_no',
+        'email',
+    ];
     /**
      * @var array rules for validation
      */
@@ -27,11 +33,11 @@ class Client extends Model
     ];
 
     public $hasMany = [
-        'reservations' => Reservation::class,   
+        'reservations' => Reservation::class,
     ];
 
     public function getFullNameAttribute()
     {
-        return $this->first_name . ' ' . $this->last_name;  
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

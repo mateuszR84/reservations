@@ -13,5 +13,6 @@ columns:
         select: service_name
     date:
         label: mater.reservations::lang.models.reservation.date
-    additional_informations:
-        label: mater.reservations::lang.models.reservation.additional_informations
+        type: date
+    hour:
+        label: mater.reservations::lang.models.reservation.start

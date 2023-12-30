@@ -1,4 +1,6 @@
-<?php namespace Mater\Reservations\Models;
+<?php
+
+namespace Mater\Reservations\Models;
 
 use Lang;
 use Mail;
@@ -47,15 +49,15 @@ class Reservation extends Model
         ];
     }
 
-    public function beforeCreate()
-    {
-        (new Calendar)->addReservationToCalendar($this->hour, $this->$length);
-    }
     public function beforeSave()
     {
         if (($this->notification_method !== 'phone') && empty($this->client->email)) {
             throw new ApplicationException(Lang::get('mater.reservations::lang.misc.notification.no_email'));
         }
+
+        $day = Carbon::parse($this->date)->format('Y-m-d');
+        $duration = $this->service->service_length;
+        (new Calendar)->set($day, $this->hour, $duration);
     }
 
     public function afterSave()
@@ -74,17 +76,15 @@ class Reservation extends Model
             'serviceType' => $serviceType,
         ];
 
-        Mail::send('mater.reservations::mail.reservation_confirmation', $data, function($message) {
+        Mail::send('mater.reservations::mail.reservation_confirmation', $data, function ($message) {
             $message->to($this->client->email, $this->client->first_name);
         });
     }
 
     public function getHourOptions()
     {
-        if ($this->date) {
-            return Calendar::getAvailableHours($this->date);
-        } else {
-            return [0 => 'Wybierz datę'];
-        }
+        $day = Carbon::parse($this->date)->format('Y-m-d');
+
+        return Calendar::get($day) ? Calendar::get($day) : Calendar::getAvailableHours($day);
     }
 }

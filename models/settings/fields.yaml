@@ -6,10 +6,10 @@ tabs:
     icons:
         mater.reservations::lang.settings.tab.opening_hours: icon-clock-o
         mater.reservations::lang.settings.tab.about: icon-map-marker
-        mater.reservations::lang.settings.tab.employees: icon-user
+        mater.reservations::lang.settings.tab.general: icon-cog
 
     fields:
-        
+
         ### About company tab
 
         company_name:
@@ -32,22 +32,22 @@ tabs:
             type: text
             tab: 'mater.reservations::lang.settings.tab.about'
             span: right
-        city: 
+        city:
             label: 'mater.reservations::lang.settings.about.city'
             type: text
             tab: 'mater.reservations::lang.settings.tab.about'
             span: left
-        postcode: 
+        postcode:
             label: 'mater.reservations::lang.settings.about.postcode'
             type: text
             tab: 'mater.reservations::lang.settings.tab.about'
             span: right
-        region: 
+        region:
             label: 'mater.reservations::lang.settings.about.region'
             type: text
             tab: 'mater.reservations::lang.settings.tab.about'
             span: left
-        
+
         _section_logo:
             label: 'mater.reservations::lang.settings.about.section_logo'
             tab: 'mater.reservations::lang.settings.tab.about'
@@ -59,60 +59,92 @@ tabs:
             tab: 'mater.reservations::lang.settings.tab.about'
             span: left
 
-        ### Employee tab
+        ### General tab
 
-        employees:
-            type: repeater
-            prompt: 'mater.reservations::lang.settings.employees.prompt'
-            tab: 'mater.reservations::lang.settings.tab.employees'
+        currency:
+            label: 'mater.reservations::lang.settings.general.currency_label'
+            comment: 'mater.reservations::lang.settings.general.currency_label_comment'
+            type: dropdown
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+        
+        _ruler:
+            type: ruler
+            tab: 'mater.reservations::lang.settings.tab.general'
+
+        daily_reminder:
+            label: 'mater.reservations::lang.settings.general.daily_reminder'
+            comment: 'mater.reservations::lang.settings.general.daily_reminder_comment'
+            type: switch
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+        frequency:
+            label: 'mater.reservations::lang.settings.general.frequency'
+            comment: 'mater.reservations::lang.settings.general.frequency_comment'
+            type: dropdown
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+        hour_sent:
+            label: 'mater.reservations::lang.settings.general.hour_sent'
+            comment: 'mater.reservations::lang.settings.general.hour_sent_comment'
+            type: datepicker
+            mode: time
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: right
+        frequency_custom:
+            label: 'mater.reservations::lang.settings.general.frequency_custom_label'
+            type: nestedform
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: full
+            trigger: 
+                action: show
+                field: frequency
+                condition: value[custom]
             form:
                 fields:
-                    first_name:
-                        label: mater.reservations::lang.settings.employees.first_name
-                        type: text
-                        span: left
-                    last_name: 
-                        label: mater.reservations::lang.settings.employees.last_name
-                        type: text
-                        span: right
-                    phone_no:
-                        label: mater.reservations::lang.settings.employees.phone_no
-                        type: text
-                        span: left
-                    email:
-                        label: mater.reservations::lang.settings.employees.email
-                        type: text
-                        span: right
+                    unit:
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_unit'
+                        type: dropdown
+                    frequency:
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_frequency'
+                        type: number
+                    hour_sent: 
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_hour_sent'
+                        type: datepicker
+                        mode: time
 
         ### Opening hours tab
-        
+        _section:
+            type: section
+            comment: 'mater.reservations::lang.settings.section_opening_hours.comment'
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         monday:
             label: 'mater.reservations::lang.settings.section_opening_hours.monday'
             type: text
             size: tiny
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         tuesday:
             label: 'mater.reservations::lang.settings.section_opening_hours.tuesday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         wednesday:
             label: 'mater.reservations::lang.settings.section_opening_hours.wednesday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         thursday:
             label: 'mater.reservations::lang.settings.section_opening_hours.thursday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         friday:
             label: 'mater.reservations::lang.settings.section_opening_hours.friday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         saturday:
             label: 'mater.reservations::lang.settings.section_opening_hours.saturday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
         sunday:
             label: 'mater.reservations::lang.settings.section_opening_hours.sunday'
             type: text
-            tab: 'mater.reservations::lang.settings.tab.opening_hours' 
+            tab: 'mater.reservations::lang.settings.tab.opening_hours'
             default: 'mater.reservations::lang.settings.section_opening_hours.sunday_default'

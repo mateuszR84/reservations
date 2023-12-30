@@ -16,7 +16,6 @@ fields:
         label: 'mater.reservations::lang.models.service_type.price'
         type: text
         span: right
-        comment: 'mater.reservations::lang.models.service_type.price_comment'
     additional_informations:
         label: 'mater.reservations::lang.models.service_type.additional_informations'
         type: richeditor

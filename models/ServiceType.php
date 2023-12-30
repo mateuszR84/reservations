@@ -11,6 +11,12 @@ class ServiceType extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    public $fillable = [
+        'service_name',
+        'service_length',
+        'service_price',
+    ];
+
     /**
      * @var string table name
      */
@@ -22,6 +28,25 @@ class ServiceType extends Model
     public $rules = [];
 
     public $hasMany = [
-        'reservations' => Reservation::class,   
+        'reservations' => Reservation::class,
     ];
+
+    public function getCurrency()
+    {
+        $currency = Settings::getCurrency();
+
+        $symbols = [
+            'PLN' => 'PLN',
+            'USD' => 'usd',
+            'EUR' => 'eur',
+            'GBP' => 'gbp'
+        ];
+
+        $symbol = '';
+        if (array_key_exists($currency, $symbols)) {
+            $symbol = array_get($symbols, $currency);
+        }
+
+        return $symbol;
+    }
 }

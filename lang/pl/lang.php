@@ -13,6 +13,12 @@ return [
             'both' => 'Telefon + mail',
             'no_email' => 'Wybrany użytkownik nie posiada zapisanego adresu email. Wybierz inną metodę powiadomień',
         ],
+        'currency' => [
+            'pln' => 'PLN (polski złoty)',
+            'eur' => 'EUR (euro)',
+            'usd' => 'USD (dolar amer.)',
+            'gbp' => 'GBP (funt szterling)'
+        ],
     ],
     'navigation' => [
         'reservations' => [
@@ -34,11 +40,11 @@ return [
         'tab' => [
             'opening_hours' => 'Godziny otwarcia',
             'about' => 'Dane firmy',
-            'employees' => 'Pracownicy',
+            'general' => 'Ogólne',
         ],
         'section_opening_hours' => [
             'label' => 'Godziny otwarcia',
-            'comment' => 'Wprowadź godziny otwarcia zakładu',
+            'comment' => 'Wprowadź godziny otwarcia zakładu w formacie np. "9:00-17:00"',
             'monday' => 'Poniedziałek',
             'tuesday' => 'Wtorek',
             'wednesday' => 'Środa',
@@ -60,6 +66,27 @@ return [
             'logo' => 'Prześlij obraz',
             'logo_comment' => 'Obraz nie powinien przekraczać wymiarów 200 x 200 px',
         ],
+        'general' => [
+            'currency_label' => 'Waluta',
+            'currency_label_comment' => 'Wybierz, w jakiej walucie będą przedstawiane ceny',
+            'daily_reminder' => 'Codzienny mail',
+            'daily_reminder_comment' => 'Włącz tą opcję, jeśli chcesz otrzymywać e-mail z rozkładem rezerwacji na dany dzień',
+            'frequency' => 'Częstotliwość',
+            'frequency_comment' => 'Wybierz jak często chcesz otrzymywać e-mail',
+            'hour_sent' => 'Godzina',
+            'hour_sent_comment' => 'Wybierz kiedy chcesz otrzymywać e-mail',
+            'frequency_daily' => 'Codziennie',
+            'frequency_weekly' => 'Tygodniowo',
+            'frequency_monthly' => 'Miesięcznie',
+            'frequency_custom' => 'Niestandardowe',
+            'frequency_custom_label' => 'Dodaj niestandardowy czas wysyłki',
+            'frequency_custom_unit' => 'Wybierz jednostkę czasu',
+            'frequency_custom_frequency' => 'Wybierz częstotliwość wysyłki',
+            'frequency_custom_hour_sent' => 'Wybierz godzinę wysyłki',
+            'frequency_day' => 'Dzień',
+            'frequency_week' => 'Tydzień',
+            'frequency_month' => 'Miesiąc',
+        ],
     ],
     'models' => [
         'client' => [
@@ -67,6 +94,7 @@ return [
             'last_name' => 'Nazwisko',
             'phone_no' => 'Nr telefonu',
             'email' => 'Email',
+            'reservations' => 'Rezerwacje użytkownika',
         ],
         'reservation' => [
             'client' => 'Klient',
@@ -75,6 +103,8 @@ return [
             'date' => 'Termin',
             'hour' => 'Dostępne godziny',
             'additional_informations' => 'Dodatkowe informacje',
+            'revoke' => 'Actions',
+            'start' => 'Godzina',
         ],
         'employee' => [
             'first_name' => 'Imię',
@@ -91,5 +121,10 @@ return [
             'price_comment' => 'Cena w PLN, wprowadź tylko wartość',
             'additional_informations' => 'Dodatkowe informacje',
         ],
+    ],
+    'controllers' => [
+        'clients' => [
+            'reservations' => 'Rezerwacje',
+        ]
     ]
 ];
