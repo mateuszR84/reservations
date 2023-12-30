@@ -67,7 +67,51 @@ tabs:
             type: dropdown
             tab: 'mater.reservations::lang.settings.tab.general'
             span: left
+        
+        _ruler:
+            type: ruler
+            tab: 'mater.reservations::lang.settings.tab.general'
 
+        daily_reminder:
+            label: 'mater.reservations::lang.settings.general.daily_reminder'
+            comment: 'mater.reservations::lang.settings.general.daily_reminder_comment'
+            type: switch
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+        frequency:
+            label: 'mater.reservations::lang.settings.general.frequency'
+            comment: 'mater.reservations::lang.settings.general.frequency_comment'
+            type: dropdown
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: left
+        hour_sent:
+            label: 'mater.reservations::lang.settings.general.hour_sent'
+            comment: 'mater.reservations::lang.settings.general.hour_sent_comment'
+            type: datepicker
+            mode: time
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: right
+        frequency_custom:
+            label: 'mater.reservations::lang.settings.general.frequency_custom_label'
+            type: nestedform
+            tab: 'mater.reservations::lang.settings.tab.general'
+            span: full
+            trigger: 
+                action: show
+                field: frequency
+                condition: value[custom]
+            form:
+                fields:
+                    unit:
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_unit'
+                        type: dropdown
+                    frequency:
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_frequency'
+                        type: number
+                    hour_sent: 
+                        label: 'mater.reservations::lang.settings.general.frequency_custom_hour_sent'
+                        type: datepicker
+                        mode: time
 
         ### Opening hours tab
         _section:

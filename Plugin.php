@@ -4,6 +4,7 @@ use Backend;
 use Carbon\Carbon;
 use System\Classes\PluginBase;
 use Mater\Reservations\Models\Calendar;
+use Mater\Reservations\Models\Settings;
 
 /**
  * Plugin Information File
@@ -73,6 +74,15 @@ class Plugin extends PluginBase
     {
         $schedule->call(function () {
             Calendar::deleteOldRecords();
-        })->dailyAt('08:00');
+        })->dailyAt('09:00');
+
+        $dailyReminder = Settings::getDailyReminder();
+        if($dailyReminder['is_enabled'] == 1){
+            $schedule->call(function () {
+            //TODO send email
+            })->dailyAt($dailyReminder['sent_at']);
+        }
     }
+
+
 }
