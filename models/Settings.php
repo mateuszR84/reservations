@@ -38,4 +38,40 @@ class Settings extends Model
     {
         return self::instance()->currency;
     }
+
+    public function getFrequencyOptions()
+    {
+        return [
+            'daily' => 'mater.reservations::lang.settings.general.frequency_daily',
+            'weekly' => 'mater.reservations::lang.settings.general.frequency_weekly',
+            'monthly' => 'mater.reservations::lang.settings.general.frequency_monthly',
+            'custom' => 'mater.reservations::lang.settings.general.frequency_custom',
+        ];    
+    }
+
+    public function getUnitOptions()
+    {
+        return [
+            'day' => 'mater.reservations::lang.settings.general.frequency_day',
+            'week' => 'mater.reservations::lang.settings.general.frequency_week',
+            'month' => 'mater.reservations::lang.settings.general.frequency_month',
+        ];    
+    }
+
+    public static function getDailyReminder(): array
+    {
+        $dailyReminder = [
+            'is_enabled' => Self::instance()->daily_reminder,
+            'frequency' => Self::instance()->frequency,
+            'sent_at' => Self::instance()->hour_sent,
+        ];   
+
+        if (Self::instance()->frequency == 'custom') {
+            $dailyReminder = array_merge($dailyReminder, [
+                'frequency_custom' => Self::instance()->frequency_custom
+            ]);
+        }
+
+        return $dailyReminder;
+    }
 }
